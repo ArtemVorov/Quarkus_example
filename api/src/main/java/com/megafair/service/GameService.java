@@ -15,7 +15,7 @@ public class GameService {
     PlatformRepository repository;
 
     public String getResourceUrl(String platformName, String requestedResource) {
-        PlatformEntity platformEntity = repository.getPlatformInfo(platformName);
+        PlatformEntity platformEntity = repository.findByName(platformName);
         if(platformEntity == null){
             return null;
         }
