@@ -7,10 +7,13 @@ services:
       - '8081:8081'
     environment:
       MP_JWT_VERIFY_PUBLICKEY_LOCATION: /jwt/publicKey.pem
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://host.docker.internal:5432/hibernate_db
     volumes:
       - type: bind
         source: ./jwt
         target: /jwt
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   jwt-auth:
     container_name: jwt-auth
     image: megafair/jwt-auth:1.0-SNAPSHOT

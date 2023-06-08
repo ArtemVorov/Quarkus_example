@@ -4,4 +4,4 @@ cd api
 cd ../jwt-auth
 ../mvnw clean compile package
 cd ../
-docker compose up
+docker compose up --build
